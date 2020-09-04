@@ -1,0 +1,24 @@
+- ico: /assets/feature/f-ico-_1.svg
+  feature: 基于Netty 以及精简版的Thrift
+  desc: 底层基于Netty进行请求响应，使用Thrift协议进行服务网络传输，高性能高可靠性
+- ico: /assets/feature/f-ico-_2.svg
+  feature: 基于Thrift IDL的服务元数据
+  desc: 得益于服务元数据，为开发人员提供在线文档查看和在线接口测试
+- ico: /assets/feature/f-ico-_3.svg
+  feature: 服务注册以及服务自动发现
+  desc: 默认使用zookeeper作为注册中心，服务上线下线实时感知
+- ico: /assets/feature/f-ico-_4.svg
+  feature: Java/Scala客户端代码自动生成
+  desc: 支持基于 Thrift 的 IDL 定义生成Java语言和Scala语言的代码生成
+- ico: /assets/feature/f-ico-_5.svg
+  feature: Json跟Thrift二进制流的高效相互转换
+  desc: 基于流的Json转换，高性能、低内存使用、容错性好
+- ico: /assets/feature/f-ico-_6.svg
+  feature: 客户端以及服务端全链路同步/异步调用支持
+  desc: 基于 Filter-Chain 模式的调用请求路径。既可以支持同步服务，也可以支持异步服务。
+- ico: /assets/feature/f-ico-_7.svg
+  feature: 多维度智能服务路由以及负载均衡策略
+  desc: 灵活可控的服务路由配置，指哪打哪；多种负载均衡策略，提高系统吞吐量
+- ico: /assets/feature/f-ico-_8.svg
+  feature: 基于共享内存的服务端限流
+  desc: 采用本地共享内存，在同一台服务器的多个Dapeng服务，可以共享同一个限流数据

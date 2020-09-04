@@ -1,0 +1,79 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | relative_url }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ "/assets/css/font-awesome.min.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/jquery.fancybox.min.css" | relative_url }}">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <script src="{{ "/assets/js/jquery.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/mermaid.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/jquery.fancybox.min.js" | relative_url }}"></script>
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+  {%- include google-analytics.html -%}
+  {%- endif -%}
+  <script>
+    
+    /**
+    *可视范围高度
+    */
+    function getClientHeight() {
+      var clientHeight = 0;
+      if (document.body.clientHeight && document.documentElement.clientHeight) {
+        var clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+      } else {
+        var clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+      }
+      return clientHeight;
+    }
+
+    /**
+    *滚动条高度
+    */
+    function getScrollTop() {
+      var scrollTop = 0;
+      if (document.documentElement && document.documentElement.scrollTop) {
+        scrollTop = document.documentElement.scrollTop;
+      } else if (document.body) {
+        scrollTop = document.body.scrollTop;
+      }
+      return scrollTop;
+    }
+    /**
+    *文档实际高度
+    */
+    function getScrollHeight() {
+      return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+    window.onscroll = function () {
+      var url = window.location.href;
+      if (getUrlRelativePath(url) === "/") {
+        if (getScrollTop() > 60) {
+          document.getElementById("site-header").style.background = "#fdfdfd"
+        } else {
+          document.getElementById("site-header").style.background = "none"
+        }
+      }
+      if (getScrollTop() > 200) {
+        $(".go-top").show();
+      } else {
+        $(".go-top").hide();
+      }
+    }
+
+    function getUrlRelativePath() {
+      var url = document.location.toString();
+      var arrUrl = url.split("//");
+
+      var start = arrUrl[1].indexOf("/");
+      var relUrl = arrUrl[1].substring(start);
+
+      if (relUrl.indexOf("?") != -1) {
+        relUrl = relUrl.split("?")[0];
+      }
+      return relUrl;
+    }  
+  </script>
+</head>

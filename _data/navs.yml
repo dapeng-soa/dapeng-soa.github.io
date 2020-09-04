@@ -1,0 +1,17 @@
+- title: 主页
+  url: /
+- title: 文档
+  url: /docs
+- title: 特性
+  url: /features
+- title: 开发团队
+  url: /team
+- title: 博客
+  url: /blogs
+- title: 常见问题
+  url: /faqs
+- title: GitHub
+  url: https://github.com/dapeng-soa/dapeng-soa
+  target: true
+- title: 关于
+  url: /about

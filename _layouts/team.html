@@ -1,0 +1,16 @@
+---
+layout: page
+---
+<div class="avatar-list">
+    <ul class="left-avatar">
+        {%- assign mod =  site.data.team.size | divided_by: 2 -%}
+        {% for t in site.data.team limit: mod %}
+        <li><img src="{{t.avatar}}"><a href="{{  t.github_url }}" target="blank" alt="@{{t.name}}">@{{ t.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <ul class="right-avatar">
+        {% for t in site.data.team offset: mod %}
+        <li><img src="{{t.avatar}}"><a href="{{  t.github_url }}" target="blank" alt="@{{t.name}}">@{{ t.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<script>
+/*图片预览插件*/
+$(document).ready(function(){ 
+      var imgs = $("img");
+      for(i in imgs){
+        var src = $(imgs[i]).attr("src");
+        $(imgs[i]).wrap("<a data-fancybox='images"+i+"' href='"+src+"'></a>");
+      }
+    }); 
+</script>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h3 class="post-title text-center">{{ page.title | escape }}</h3>
+    <p class="post-meta text-center">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

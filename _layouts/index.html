@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+{%- include head.html -%}
+
+<body>
+
+  {%- include header.html -%}
+  <main class="page-content text-center" aria-label="Content" style="margin-top: 0;">
+    <div class="index-wapper" style="height:650px;background-image: url(/assets/trianglify.svg);padding-top: 60px;background-position:center;background-size: cover;">
+      <div class="container">
+        <p align="center">
+          <a href="/">
+              <img width="254" src="/assets/dapeng002.png" alt="dapeng-soa" title="dapeng-soa" />
+          </a>
+        </p>
+        <h1 class="max-title">dapeng-soa</h1>
+        <p class="sub-title">一个轻量级、高性能、简洁优雅的微服务框架</p>
+        <p class="container-button">
+          <a href="https://github.com/dapeng-soa/dapeng-demo-sbt">SBT Demo(Scala)</a>
+          <a href="https://github.com/dapeng-soa/dapeng-hello">Maven Demo(Java)</a>
+          <a href="http://demo.dapeng-soa.tech">在线演示</a>
+          <a href="https://github.com/dapeng-soa/dapeng-soa">Github</a>
+        </p>
+      </div>
+    </div>
+    <div class="index-wapper">
+      <div class="container">
+        <h2>特性一览</h2>
+        <ul class="feature-section">
+          {%- for f in site.data.feature -%}
+          <li>
+            <img src="{{ f.ico }}">
+            <div>
+              <h4>{{ f.feature }}</h4>
+              <p>{{ f.desc }}</p>
+            </div>
+          </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+    <div class="index-wapper bg-light-gray">
+      <div class="container">
+        <p align="center">
+          <a href="/assets/gif/sbt-new-gif.gif" data-fancybox="images666" >
+              <img src="/assets/gif/sbt-new-gif.gif" style="border-radius: 5px; -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+              box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);"
+    alt="dapeng-soa" title="dapeng-soa" />
+          </a>
+        </p>
+        <p>强大的插件，快速生成项目模版，让你只需注重业务逻辑</p>
+      </div>
+    </div>
+    <div class="index-wapper">
+      <div class="container">
+        <h2>Architecture</h2>
+        <p align="center">
+          <a href="/assets/dapeng-architecture.png" data-fancybox="images777" >
+            <img src="/assets/dapeng-architecture.png" alt="dapeng-soa" title="dapeng-soa" />
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="index-wapper bg-light-gray">
+      <div class="container">
+        <h2>周边工具</h2>
+        <div style="display:flex;flex-flow:row wrap;justify-content:space-around;">
+          <div class="editor">
+            <i class="fa fa-terminal" aria-hidden="true"></i>
+            <div class="editorInfo">
+              <h3 style="margin-bottom:-16px;">DapengCLI</h3>
+              <div>
+                <span>
+                  <p>
+                    <a href="https://github.com/dapeng-soa/dapeng-cli">
+                      <p>CLI工具</p>
+                    </a>
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="editor">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            <div class="editorInfo">
+              <h3 style="margin-bottom:-16px;">configServer</h3>
+              <div>
+                <span>
+                  <p>
+                    <a href="https://github.com/dapeng-soa/dapeng-config-server">
+                      <p>配置部署中心</p>
+                    </a>
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="editor">
+            <i class="fa fa-leaf" aria-hidden="true"></i>
+            <div class="editorInfo">
+              <h3 style="margin-bottom:-16px;">serviceMesh</h3>
+              <div>
+                <span>
+                  <p>
+                    <a href="https://github.com/dapeng-soa/dapeng-mesh">
+                      <p>基于netty的异步网关</p>
+                    </a>
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="editor">
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            <div class="editorInfo">
+              <h3 style="margin-bottom:-16px;">EventBus</h3>
+              <div>
+                <span>
+                  <p>
+                    <a href="https://github.com/dapeng-soa/dapeng-event-bus">
+                      <p>事件总线</p>
+                    </a>
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {%- include footer.html -%}
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <a class="go-top" href="javascript:void(0)">
+    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+  </a>
+  <div class="wrapper">
+    <div class="footer-col-wrapper text-center">
+      <ul class="contact-list">
+        <li>
+          <p>
+            <iframe src="https://ghbtns.com/github-btn.html?user=dapeng-soa&repo=dapeng-soa&type=star&count=true"
+              frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+          </p>
+        </li>
+        <li class="footer-icon">
+          {%- if site.github_username -%}<a href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><i
+              class="fa fa-github" aria-hidden="true"></i> </a>{%- endif -%}
+          {%- if site.rss -%}<a href="{{ 'feed.xml' | relative_url }}"><i class="fa fa-rss-square" aria-hidden="true"></i></a>{%-
+          endif -%}
+          {%- if site.email -%}<a class="u-email" href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a>{%-
+          endif -%}
+        </li>
+        <li>Copyright © 2018 dapeng-soa</li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<script>
+  $(".go-top").click(function () {
+    $("html,body").animate({ scrollTop: 0 }, "slow");
+  });
+</script>

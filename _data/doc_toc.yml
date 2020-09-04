@@ -1,0 +1,105 @@
+docs:
+- title:      快速开始
+  en_title:   Quick start
+  children:
+  - title:  Java
+    url:    /docs/zh/quick-start
+  - title:  Scala
+    url:    /docs/zh/start-dapeng-scala-implement
+- title:      开发工具
+  en_title:   Tools
+  children:
+  - title:  服务文档
+    url:    /docs/zh/service-document-site
+  - title:  在线测试
+    url:    /docs/zh/service-online-test
+  - title:  MockServer
+    url:    /docs/zh/mock-server
+  - title:  SBT插件
+    url:    /docs/zh/sbt-plugin
+  - title:  Maven插件
+    url:    /docs/zh/maven-plugin
+- title:      应用协议
+  en_title:   Application protocol
+  children:
+  - title:  应用协议
+    url:    /docs/zh/dapeng-protocol
+  - title:  服务接口协议
+    url:    /docs/zh/IDL-detail
+- title:      服务治理
+  en_title:   Service governance
+  children:
+  - title:  负载均衡
+    url:    /docs/zh/service-governance-loadbalance
+  - title:  服务路由
+    url:    /docs/zh/service-governance-router
+  - title:  服务限流
+    url:    /docs/zh/service-governance-rate-limit
+  - title:  慢服务检测
+    url:    /docs/zh/service-governance-slow-service-detech
+  - title:  命令行工具
+    url:    /docs/zh/service-governance-dapeng-cli
+- title:      配置管理中心
+  en_title:   Config server
+  children:
+  - title:  配置中心
+    url:    /docs/zh/config-server
+  - title:  构建部署中心设计
+    url:    /docs/zh/deploy-server-build-idea
+  - title:  部署中心
+    url:    /docs/zh/deploy-server-use
+  - title:  构建中心[x]
+    url:    /docs/zh/build-server-use
+- title:      框架设计分析
+  en_title:   Design
+  children:
+  - title:  服务路由规则解析引擎
+    url:    /docs/zh/service-router-parser
+  - title:  流式Json处理器
+    url:    /docs/zh/streaming-json
+
+- title:      服务网关
+  en_title:   Service Gateway
+  children:
+    - title:  DapengMesh的使用介绍
+      url:    /docs/zh/dapeng-mesh-intro
+
+- title:      Dapeng for SpringBoot
+  en_title:   Dapeng for SpringBoot
+  children:
+    - title:  基于SpringBoot的Dapeng服务开发与原理
+      url:    /docs/zh/dapeng_for_spring_boot_1
+
+
+
+- title:      DDD事件设计
+  en_title:   DDD_Event
+  children:
+  - title:  DDD事件模型
+    url:    /docs/zh/ddd-pattern
+  - title:  Eventbus生产者配置详解
+    url:    /docs/zh/2018-11-28-eventbus-producer
+  - title:  Eventbus消费者配置详解
+    url:    /docs/zh/2018-11-28-eventbus-consumer
+  - title:  Eventbus消息重试机制详解
+    url:    /docs/zh/2018-11-28-rest-consumer
+  - title:  异构消费代理系统KafkaMsgAgent详解
+    url:   /docs/zh/2018-11-28-rest-consumer
+  - title: KafkaMsgAgent 开发者指南
+    url: /docs/zh/2018-12-13-kafka-msg-agent-developer-guide
+  - title:  Eventbus消息Dump工具详解
+    url:   /docs/zh/2018-11-29-kafka-dump-util
+  - title:  Eventbus3.0.0 新特性使用手册
+    url:    /docs/zh/ddl-event-bus-for-3.0.0
+- title:      其它
+  en_title:   Others
+  children:
+  - title:  会话级日志级别调整[x]
+    url:    /docs/zh/logger-level-set-per-session
+  - title:  分布式服务调用跟踪[x]
+    url:    /docs/zh/service-invoke-tracing
+
+  - title:  异步服务实现
+    url:    /docs/zh/async-service
+  - title:  参数列表
+    url:    /docs/zh/parameter-options

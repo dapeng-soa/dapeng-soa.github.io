@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{%- include head.html -%}
+<script>
+    /**
+    * 移动端目录开关
+    */
+    var taggleSidebar = function () {
+        var left = document.getElementById("side-bar-view").style.left;
+        var leftV = left === "0px" ? -250 : 0;
+        document.getElementById("side-bar-view").style.left = leftV + "px";
+    }
+
+    /**
+    * 文档toc
+    */
+    $(document).ready(function () {
+        var tocs = "<ul>";
+        var index = 0;
+        $(".doc-page-main").find("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]").each(function () {
+            $this = $(this).attr("id");
+            tocs += "<li><a href='#" + $this + "'>" + (++index) + ". " + $this + "</a></li>"
+        })
+        tocs += "</ul>"
+        $("#page-toc").append(tocs);
+    })
+    /**
+     * 文档toc 开关
+     */
+
+    var tagglePageToc = function (obj) {
+        var parent = $("#page-toc");
+        var right = $(parent).css("right");
+        var width = parent.width();
+        var rightV = right === "0px" ? -width : 0;
+        $(parent).css("right", rightV);
+        var r_this = $(obj).css("left").replace("px", "");
+        var r_thisV = Number(r_this) > 0 ? - $(obj).width() : 10;
+        $(obj).css("left", r_thisV)
+    }
+
+    /*图片预览插件*/
+    $(document).ready(function () {
+        var imgs = $("img");
+        for (i in imgs) {
+            var src = $(imgs[i]).attr("src");
+            $(imgs[i]).wrap("<a data-fancybox='images" + i + "' href='" + src + "'></a>");
+        }
+    }); 
+</script>
+
+<body>
+    {%- include header.html -%}
+    <main class="page-content" aria-label="Content">
+        <div class="index-wapper bg-light-gray" style="padding:15px 0;">
+            <div class="wrapper">
+                <h3>{{ page.title | escape }}<a style="font-size:0.9em;padding-left: 10px;" title="Edit on Github" href="{{ site.github_repo | escape }}/edit/master/{{page.path}}"><i
+                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h3>
+            </div>
+        </div>
+        <div class="wrapper pd-tb">
+            <div class="doc-sidebar bg-light-gray" id="side-bar-view">
+                <div class="sidebar-toggle" onclick="taggleSidebar()">
+                    <i><svg viewBox="0 0 18 15" width="18px" height="15px">
+                            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                        </svg></i>
+                </div>
+                <ul class="doc-toc-1">
+                    {%- assign doc_tocs = site.data.doc_toc.docs -%}
+                    {%- assign path = page.path | replace: ".md" , "" -%}
+                    {% for item in doc_tocs %}
+                    <li>
+                        {%- if item.url -%}
+                        <a href="{{ item.url | escape }}"><span style="font-weight: 700"> {{ item.title }}</span></a>
+                        {% else %}
+                        <span style="font-weight: 700"> {{ item.title }}</span>
+                        {%- endif -%}
+                        <ul class="doc-toc-2">
+                            {% for child in item.children %}
+                            <li><a href="{{ child.url }}" {% if child.url contains path %} style="color:#828282" {% endif %}> {{ child.title }} </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="doc-page-main">
+                <div id="page-toc">
+                    <div class="page-toc-toggle" onclick="tagglePageToc(this)"><i><svg viewBox="0 0 18 15" width="18px"
+                                height="15px">
+                                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                            </svg></i></div>
+                    <h3 style="padding:0 10px;">目录</h3>
+                </div>
+                {{ content }}
+            </div>
+
+        </div>
+    </main>
+    {%- include footer.html -%}
+</body>
+
+</html>
